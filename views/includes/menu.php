@@ -32,12 +32,7 @@
                     <span>Educateur</span>
                 </a>
             </li>
-            <li class="<?= $_GET['page'] === 'login' ? "active" : "" ?> ">
-                <a href="index.php?page=login">
-                    <i class="fa-solid fa-person-chalkboard"></i>
-                    <span>Login</span>
-                </a>
-            </li>
+          
         </ul>
 
     </div>
