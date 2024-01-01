@@ -1,0 +1,251 @@
+
+/* font cdn link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,400&display=swap');
+
+
+:root{
+    --color-white: #fff;
+    --primary-color: rgba(113, 99, 186, 255);
+    --color-menu-hover: #e0e0e058;
+    --bg-main-section: #ebe9e9;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family:"Poppins", sans-serif;
+}
+
+body{
+    display: flex;
+}
+
+.sidebar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 6.8rem;
+    height: 100vh;
+    padding: 0 1.7rem;
+    color: var(--color-white);
+    overflow: hidden;
+    transition: all 0.5s linear;
+    background: var(--primary-color);
+}
+
+.sidebar:hover{
+    width: 15rem;
+    transition: 0.5s;
+}
+
+.logo{
+    height: 80px;
+    padding: 1rem;
+}
+
+.menu{
+    height: 88%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li{
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius:0.5rem ;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu li:hover, .active{
+    background: var(--color-menu-hover);
+}
+
+.menu a{
+    color: var(--color-white);
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.menu a span{
+    overflow: hidden;
+}
+
+.menu a i{
+    font-size: 1.2rem;
+}
+
+/* main body section */
+.main_content{
+    position: relative;
+    background: var(--bg-main-section);
+    width: 100%;
+    padding: 1rem;
+}
+.header_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: var(--color-white);
+    border-radius: 0.8rem;
+    padding: 0.8rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.header_wrapper img{
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    border: 50%;
+}
+
+.header_title{
+    color: var(--primary-color);
+}
+
+.user_info{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search_box{
+    background: rgb(237, 237, 237);
+    border-radius:0.9rem ;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+}
+
+.search_box input{
+    background: transparent;
+    padding: 10px;
+} 
+
+.search_box i{
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all .5s ease-out;
+}
+
+.search_box i:hover{
+    transform: scale(1.2);
+}
+
+/* ------------ Card Container */
+.card_container{
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.card_wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.main_title{
+    color: var(--primary-color);
+    padding-bottom: 10px;
+    font-style: 15px;
+}
+
+.card_one{
+    background: rgb(229, 223, 223);
+    border-radius: 10px;
+    padding: 1.2rem;
+    width: 290px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.5s ease-in-out;
+}
+
+.card_one:hover{
+    transform: translateY(-5px);
+}
+
+.card_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.amount{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.amount_value{
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+.icon{
+    padding: 1rem;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: var(--color-white);
+    background: crimson;
+}
+
+.card_detail{
+    font-size: 18px;
+    color: #777777;
+    letter-spacing: 2px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+/* card colors */
+.light-red{
+    background: rgb(251, 233, 233);
+}
+
+.light-purple{
+    background: rgb(254, 226, 254);
+}
+
+.light-green{
+    background: rgb(235, 254, 235);
+}
+
+.light-blue{
+    background: rgb(236, 236, 254);
+}
+
+.dark-red{
+    background: red;
+}
+.dark-purple{
+    background: purple;
+}
+.dark-green{
+    background: green;
+}
+.dark-blue{
+    background: blue;
+}
