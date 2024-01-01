@@ -4,6 +4,6 @@ session_start();
 session_destroy();
 
 // Rediriger vers la page principale (ou une autre page après la déconnexion)
-header("Location:index.php?page=dashboard");  // Assurez-vous de remplacer "index.php" par le chemin de votre page principale
+header("Location:index.php?page=login");  // Assurez-vous de remplacer "index.php" par le chemin de votre page principale
 exit();
 ?>
