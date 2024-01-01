@@ -135,37 +135,7 @@ class EducateurController{
     }
 
 
-    public function login($email , $password){
-        $educateur = $this->educateurDao->getByEmail($email);
-        if($educateur != null){
-            if($educateur->getPassword() == $password){
-                if($educateur->getAdmin() === 'oui'){
-                    $message = "Connexion reussie  .";
-                    echo json_encode([
-                    'success' => 'true',
-                    'message' => $message]);
-                }else{
-                    $message = "Cet educateur n'a pas access  .";
-                    echo json_encode([
-                    'success' => 'false',
-                    'message' => $message]);
-                }
-            }else{
-
-                $message = "Mot de passe Incorrect .";
-                echo json_encode([
-                'success' => 'false',
-                'message' => $message]);
-            }
-
-        }else{
-            $message = "Ce mail n'existe pas .";
-            echo json_encode([
-            'success' => 'false',
-            'message' => $message]);
-        }
-    }
-
+   
     public function getAllEducateurs()
     {
         $educateurs = $this->educateurDao->getAll();

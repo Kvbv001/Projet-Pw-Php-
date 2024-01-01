@@ -5,7 +5,12 @@ if (!isset($_SESSION['educateur_id'])) {
     header("Location: index.php?page=login"); // Remplacez 'page_connexion.php' par le chemin de votre page de connexion
     exit();
 }
-else{?>
+else{
+    require_once(__DIR__ . "/../classes/dao/EducateurDAO.php");
+    require_once(__DIR__ . '/../classes/models/EducateurModel.php');
+
+
+    ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -42,7 +47,31 @@ else{?>
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="rechercher">
                 </div>
-                <img src="./assets/images/default-user.png" alt="">
+                <?php 
+
+                if (isset($_SESSION['educateur_id'])) {
+                    // L'utilisateur est connecté
+                    $educateurDao = new EducateurDAO(new Connexion());
+                    $educateur = $educateurDao->getById($_SESSION['educateur_id']);
+            
+                    
+                    echo '<div class="user_profile">';
+                    echo '<img src="./assets/images/default-user.png" alt="User Image">';
+                    echo '<div class="user_details">';
+                    echo '<span>'. $educateur->getNom()." " .$educateur->getPrenom(). '</span>';
+                    echo '</div>';
+                    echo '</div>';
+            
+                    // Affichage du menu déroulant pour la déconnexion
+                    echo '<div class="logout_menu">';
+                    echo '<select onchange="window.location.href=this.value">';
+                    echo '<option value="" disabled selected>Deconnexion</option>';
+                    echo '<option value="deconnexion.php">Se déconnecter</option>';
+                    echo '</select>';
+                    echo '</div>';
+                }
+                ?>
+
             </div>
         </div>
         <div class="card_container">
