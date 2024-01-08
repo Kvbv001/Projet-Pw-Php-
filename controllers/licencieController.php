@@ -118,6 +118,7 @@ class LicencieController{
         foreach ($licencies as $licencie) {
             $contactId = $licencie->getIdContact();
             $categorieId = $licencie->getIdCategorie();
+            
 
             $contact = $contactdao->getById($contactId);
             $categorie = $categoriedao->getById($categorieId);
@@ -136,7 +137,8 @@ class LicencieController{
                 'categorie' => [
                     'nom' => $categorie->getNom(),
                     // Ajoutez d'autres propriétés au besoin
-                ],
+                ]
+                
                 // Ajoutez d'autres propriétés au besoin
             ];
         }
@@ -147,13 +149,18 @@ class LicencieController{
     public function addLicencie() {
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
-        $email = $_POST['email'];
-        $telephone = $_POST['telephone'];
+        $nomC = $_POST['nomContact'];
+        $prenomC = $_POST['prenomContact'];
+        $email = strtolower($_POST['email']);
+        $telephone = strtolower($_POST['telephone']);
         $id = $_POST['categories'];
+
         
         // Récupérer la liste des e-mails existants
         $contactsDao = new ContactDAO(new Connexion());
         $emails = $contactsDao->getAllEmail();
+        $telephones =$contactsDao->getAllTelephone();
+
     
         if (in_array($email, $emails)) {
             $message = "Ce mail existe déjà";
@@ -162,9 +169,15 @@ class LicencieController{
                 'success' => false,
                 'message' => $message
             ]);
+        }else if (in_array($telephone, $telephones)) {
+            $message = "Ce Numero de telephone existe déjà existe deja .";
+            echo json_encode([
+                'success' => 'false',
+                'message' => $message
+            ]);
         } else {
             // Créer une nouvelle instance de contact
-            $contact = new ContactModel(0, $nom, $prenom, $email, $telephone);
+            $contact = new ContactModel(0, $nomC, $prenomC, $email, $telephone);
             // Ajouter le contact
             $contactsDao->create($contact);
             // Récupérer l'ID du dernier contact ajouté
@@ -210,8 +223,8 @@ class LicencieController{
     
             $contact->setEmail($email);
             $contact->setTelephone($_POST['telephone_modif']);
-            $contact->setNom($_POST['nom_modif']);
-            $contact->setPrenom($_POST['prenom_modif']);
+            $contact->setNom($_POST['nomContact_modif']);
+            $contact->setPrenom($_POST['prenomContact_modif']);
     
             if ($contactsDao->update($contact)) {
                 if ($this->licencieDao->update($licencie)) {
