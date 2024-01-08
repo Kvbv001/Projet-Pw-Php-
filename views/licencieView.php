@@ -108,13 +108,23 @@ $categories = $categorieController->getAllCategories();
                             <input type="text" class="form-control" id="prenom" name="prenom" placeholder="">
                             <div id="codeHelp" class="form-text"></div>
                         </div>
+                        <div class="mb-3 col-12">
+                            <label for="nomContact" class="form-label">Nom Du Contact</label>
+                            <input type="text" class="form-control" id="nomContact" name="nomContact" placeholder="">
+                            <div id="nomHelp" class="form-text"></div>
+                        </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
+                            <label for="prenomContact" class="form-label">Prenom Du Contact</label>
+                            <input type="text" class="form-control" id="prenomContact" name="prenomContact" placeholder="">
+                            <div id="codeHelp" class="form-text"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Du Contact</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="">
                             <div id="codeHelp" class="form-text"></div>
                         </div>
                         <div class="mb-3">
-                            <label for="telephone" class="form-label">Telephone</label>
+                            <label for="telephone" class="form-label">Telephone Du Contact</label>
                             <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="">
                             <div id="codeHelp" class="form-text"></div>
                         </div>
@@ -153,13 +163,23 @@ $categories = $categorieController->getAllCategories();
                             <input type="text" class="form-control" id="prenom_modif" name="prenom_modif" placeholder="">
                             <div id="codeHelp" class="form-text"></div>
                         </div>
+                        <div class="mb-3 col-12">
+                            <label for="nomContact_modif" class="form-label">Nom Du Contact</label>
+                            <input type="text" class="form-control" id="nomContact_modif" name="nomContact_modif" placeholder="">
+                            <div id="nomHelp" class="form-text"></div>
+                        </div>
                         <div class="mb-3">
-                            <label for="email_modif" class="form-label">Email</label>
+                            <label for="prenomContact_modif" class="form-label">Prenom Du Contact</label>
+                            <input type="text" class="form-control" id="prenomContact_modif" name="prenomContact_modif" placeholder="">
+                            <div id="codeHelp" class="form-text"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email_modif" class="form-label">Email Du Contact</label>
                             <input type="email" class="form-control" id="email_modif" name="email_modif" placeholder="">
                             <div id="codeHelp" class="form-text"></div>
                         </div>
                         <div class="mb-3">
-                            <label for="telephone_modif" class="form-label">Telephone</label>
+                            <label for="telephone_modif" class="form-label">Telephone Du Contact</label>
                             <input type="tel" class="form-control" id="telephone_modif" name="telephone_modif" placeholder="">
                             <div id="codeHelp" class="form-text"></div>
                         </div>
@@ -191,9 +211,11 @@ $categories = $categorieController->getAllCategories();
                         <div class="modal-body">
                             <p class="mb-2">Nom : <span class="detailNom"></span></p>
                             <p class="mb-2">Prénom : <span class="detailPrenom"></span></p>
+                            <p class="mb-2">Nom Du Contact : <span class="detailNomContact"></span></p>
+                            <p class="mb-2">Prénom Du Contact : <span class="detailPrenomContact"></span></p>
                             <p class="mb-2">Catégorie : <span class="detailCategrie"></span></p>
-                            <p class="mb-2">Numéro Téléphone : <span class="detailTelephone"></span></p>
-                            <p class="mb-2">Email : <span class="detailEmail"></span></p>
+                            <p class="mb-2">Téléphone Du Contact : <span class="detailTelephone"></span></p>
+                            <p class="mb-2">Email Du Contact : <span class="detailEmail"></span></p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -360,8 +382,16 @@ $categories = $categorieController->getAllCategories();
                                     title: 'Catégorie'
                                 },
                                 {
+                                    data: 'contact.nom',
+                                    title: 'Contact Nom'
+                                },
+                                {
+                                    data: 'contact.prenom',
+                                    title: 'Contact Prenom'
+                                },
+                                {
                                     data: 'contact.email',
-                                    title: 'Email'
+                                    title: 'Contact Email'
                                 },
                                 {
                                     title: 'Actions',
@@ -404,6 +434,8 @@ $categories = $categorieController->getAllCategories();
 
                         $('.detailNom').text(licencie['nom'])
                         $('.detailPrenom').text(licencie['prenom'])
+                        $('.detailPrenomContact').text(contact['prenom'])
+                        $('.detailNomContact').text(contact['nom'])
                         $('.detailEmail').text(contact['email'])
                         $('.detailTelephone').text(contact['telephone'])
                         $('.detailCategrie').text(categorie['nom'])
@@ -432,6 +464,8 @@ $categories = $categorieController->getAllCategories();
                         $("#id_modif").val(licencie['id']);
                         $("#nom_modif").val(licencie['nom']);
                         $("#prenom_modif").val(licencie['prenom']);
+                        $("#nomContact_modif").val(contact['nom']);
+                        $("#prenomContact_modif").val(contact['prenom']);
                         $("#telephone_modif").val(contact['telephone']);
                         $("#email_modif").val(contact['email']);
                         $("#categories_modif").val(licencie['idCategorie']);
