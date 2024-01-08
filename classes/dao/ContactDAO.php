@@ -100,6 +100,22 @@ class ContactDAO {
             return [];
         }
     }
+
+    public function getAllTelephone() {
+        try {
+            $stmt = $this->connexion->pdo->query("SELECT telephone FROM contact");
+            $telephone = [];
+    
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                // Ajouter l'email au tableau $emails
+                $telephone[] = strtolower($row['telephone']);            }
+    
+            return $telephone;
+        } catch (PDOException $e) {
+            // Gérer les erreurs de récupération ici
+            return [];
+        }
+    }
     
 
     // MÃ©thode pour mettre Ã  jour un contact
